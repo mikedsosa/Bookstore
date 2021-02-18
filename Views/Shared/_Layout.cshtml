@@ -1,17 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
+@*call in stylesheets and set page title for tab*@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Mike05</title>
+    <title>@ViewData["Title"] - My Lil Amazon</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    @*nav bar with links to other pages*@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mike05</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">My Lil Amazon</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,23 +24,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    @*Body housing the imported view from other pages*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+    @*Footer to look cute and call in any scripts needed*@
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Mike05 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - My Lil Amazon - Jackson van der Werf
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -46,3 +49,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+

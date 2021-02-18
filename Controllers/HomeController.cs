@@ -11,22 +11,27 @@ namespace Mike05.Controllers
 {
     public class HomeController : Controller
     {
+        //set up private and public variables for the repository
         private readonly ILogger<HomeController> _logger;
+        private IBookRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
+        //Controller for the index page
         public IActionResult Index()
         {
-            return View();
+            return View(_repository.Books);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        // not being used right not
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

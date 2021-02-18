@@ -1,8 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
 
+@*call in model to be used*@
+@model IQueryable<Book>
+@*generic welcome*@
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>Check Out Professor Hilton's Book Recommendations!</h1>
+</div>
+
+@*create div using bootstrap and place a book objecat inside of it.*@
+<div class="text-center">
+    @foreach (var x in Model)
+    {
+<div class="border d-inline-block w-25 p-3">
+    <h4>@x.Title</h4>
+    <p>Author: @x.AuthorFirst @x.AuthorMiddle @x.AuthorLast</p>
+    <p>Publisher: @x.Publisher</p>
+    <p>ISBN: @x.ISBN</p>
+    <p>Classification: @x.Classification</p>
+    <p>Category: @x.Category</p>
+    <p>Price: $@x.Price</p>
+</div>}
 </div>
