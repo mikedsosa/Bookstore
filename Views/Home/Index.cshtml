@@ -1,23 +1,38 @@
 ﻿@{ ViewData["Title"] = "Home Page"; }
 
-@*call in model to be used*@
-@model IQueryable<Book>
-@*generic welcome*@
-<div class="text-center">
-    <h1>Super real, not fake news... these are seriosuly the Hiltonaters Favorite books.</h1>
-</div>
+@*Call in model to be used*@
+@model BookListViewModel
+@*Create div using bootstrap and place a book object inside of it.*@
+@foreach (var b in Model.Books)
+{
+<div class="card card-outline-primary m-1 p-1">
 
-@*create div using bootstrap and place a book objecat inside of it.*@
-<div class="text-center">
-    @foreach (var x in Model)
-    {
-<div class="border d-inline-block w-25 p-3">
-    <h4>@x.Title</h4>
-    <p>Author: @x.AuthorFirst @x.AuthorMiddle @x.AuthorLast</p>
-    <p>Publisher: @x.Publisher</p>
-    <p>ISBN: @x.ISBN</p>
-    <p>Classification: @x.Classification</p>
-    <p>Category: @x.Category</p>
-    <p>Price: $@x.Price</p>
+    @*Put in cover image for the last 3 books (or any if i feel like adding more later)*@
+    <img class="card-img-top img-fluid" src="@b.CoverImg" />
+
+    @*Create header for each card using book title*@
+    <div class="card-header">
+        <h4 class="my-auto">@b.Title</h4>
+    </div>
+
+    @*Create body content for each card using the rest of the model*@
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Author: @b.AuthorFirst @b.AuthorMiddle @b.AuthorLast</li>
+            <li class="list-group-item">Publisher: @b.Publisher</li>
+            <li class="list-group-item">ISBN: @b.ISBN</li>
+            <li class="list-group-item">Classification: @b.Classification</li>
+            <li class="list-group-item">Category: @b.Category</li>
+            <li class="list-group-item">Price: $@b.Price</li>
+            <li class="list-group-item">Total Pages: @b.TotalPages</li>
+        </ul>
+    </div>
 </div>}
-</div>
+
+@*Buttons for pagination*@
+<div page-model="@Model.PagingInfo" page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     class="btn-group pull-right m-1"></div>

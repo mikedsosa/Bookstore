@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mike05.Models.ViewModels;
 namespace Mike05.Models
 {
     public class SeedData
@@ -34,7 +35,8 @@ namespace Mike05.Models
                         ISBN = "978-0451419439",
                         Classification = "Fiction",
                         Category = "Classic",
-                        Price = 9.95
+                        Price = 9.95,
+                        TotalPages = 1488
                     },
 
                     new Book
@@ -47,7 +49,8 @@ namespace Mike05.Models
                         ISBN = "978-0743270755",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 14.58
+                        Price = 14.58,
+                        TotalPages = 944
                     },
 
                     new Book
@@ -59,7 +62,8 @@ namespace Mike05.Models
                         ISBN = "978-0553384611",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54
+                        Price = 21.54,
+                        TotalPages = 832
                     },
 
                     new Book
@@ -72,7 +76,8 @@ namespace Mike05.Models
                         ISBN = "978-0812981254",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 11.61
+                        Price = 11.61,
+                        TotalPages = 864
                     },
 
                     new Book
@@ -84,7 +89,8 @@ namespace Mike05.Models
                         ISBN = "978-0812974492",
                         Classification = "Non-Fiction",
                         Category = "Historical",
-                        Price = 13.33
+                        Price = 13.33,
+                        TotalPages = 528
                     },
 
                     new Book
@@ -96,7 +102,8 @@ namespace Mike05.Models
                         ISBN = "978-0804171281",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
-                        Price = 15.95
+                        Price = 15.95,
+                        TotalPages = 288
                     },
 
                     new Book
@@ -108,7 +115,8 @@ namespace Mike05.Models
                         ISBN = "978-1455586691",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99
+                        Price = 14.99,
+                        TotalPages = 304
                     },
 
                     new Book
@@ -120,7 +128,8 @@ namespace Mike05.Models
                         ISBN = "978-1455523023",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 21.66
+                        Price = 21.66,
+                        TotalPages = 240
                     },
 
                     new Book
@@ -132,7 +141,8 @@ namespace Mike05.Models
                         ISBN = "978-1591847984",
                         Classification = "Non-Fiction",
                         Category = "Business",
-                        Price = 29.16
+                        Price = 29.16,
+                        TotalPages = 400
                     },
 
                     new Book
@@ -144,7 +154,52 @@ namespace Mike05.Models
                         ISBN = "978-0553393613",
                         Classification = "Fiction",
                         Category = "Thrillers",
-                        Price = 15.03
+                        Price = 15.03,
+                        TotalPages = 642
+                    },
+
+                    //bring in 3 of my own favorite books. Give them a cover image to be placed on their card
+                    new Book
+                    {
+                        Title = "Ender in Exile",
+                        AuthorFirst = "Orson",
+                        AuthorMiddle = "Scott",
+                        AuthorLast = "Card",
+                        Publisher = "St. Martins Press-3PL",
+                        ISBN = "978-0765304964",
+                        Classification = "Fiction",
+                        Category = "Science Fiction",
+                        Price = 8.69,
+                        TotalPages = 369,
+                        CoverImg = "https://th.bing.com/th/id/R181ee4567dfb35864967a4e3bf95e1a6?rik=l9tpRClhr9%2bv1A&riu=http%3a%2f%2ftheabsolutemag.com%2fwp-content%2fuploads%2f2015%2f06%2fender-in-exile-976x448.jpg&ehk=a48wFqry2DSVOPAGU8bo3XTIvA1Aa31OSy%2bSRM%2bNAoc%3d&risl=&pid=ImgRaw"
+                    },
+
+                    new Book
+                    {
+                        Title = "Magnus Chase and the Gods of Asgard: The Sword of Summer",
+                        AuthorFirst = "Rick",
+                        AuthorLast = "Riordan",
+                        Publisher = "Disney-Hyperion Books",
+                        ISBN = "978-1423160915",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 8.99,
+                        TotalPages = 499,
+                        CoverImg = "https://bookstacked.com/wp-content/uploads/2015/10/MAGNUS-CHASE_jacket_FINAL2.jpg"
+                    },
+
+                    new Book
+                    {
+                        Title = "Pendragon: The Merchant of Death",
+                        AuthorFirst = "D.J.",
+                        AuthorLast = "MacHale",
+                        Publisher = "Aladdin Paperbacks",
+                        ISBN = "978-0743437318",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 9.99,
+                        TotalPages = 375,
+                        CoverImg = "https://m.media-amazon.com/images/I/51fRfpkOZEL._SL500_.jpg"
                     }
                 );
 
@@ -154,3 +209,4 @@ namespace Mike05.Models
         }
     }
 }
+

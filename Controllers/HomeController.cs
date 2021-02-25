@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Mike05.Models.ViewModels;
 
 namespace Mike05.Controllers
 {
@@ -14,6 +15,7 @@ namespace Mike05.Controllers
         //set up private and public variables for the repository
         private readonly ILogger<HomeController> _logger;
         private IBookRepository _repository;
+        public int PageSize = 5;
 
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
@@ -22,9 +24,23 @@ namespace Mike05.Controllers
         }
 
         //Controller for the index page
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            return View(_repository.Books);
+            //add in information for pagination
+            return View(new BookListViewModel
+            {
+                Books = _repository.Books
+                        .OrderBy(b => b.BookId)
+                        .Skip((page - 1) * PageSize)
+                        .Take(PageSize)
+                    ,
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalNumItems = _repository.Books.Count()
+                }
+            });
         }
 
         // not being used right not
