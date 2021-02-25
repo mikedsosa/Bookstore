@@ -36,7 +36,6 @@ namespace Mike05.Models
         [Required]
         public double Price { get; set; }
         public int TotalPages { get; set; }
-        public string CoverImg { get; set; }
     }
 }
 

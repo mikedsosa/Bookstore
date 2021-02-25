@@ -171,7 +171,6 @@ namespace Mike05.Models
                         Category = "Science Fiction",
                         Price = 8.69,
                         TotalPages = 369,
-                        CoverImg = "https://th.bing.com/th/id/R181ee4567dfb35864967a4e3bf95e1a6?rik=l9tpRClhr9%2bv1A&riu=http%3a%2f%2ftheabsolutemag.com%2fwp-content%2fuploads%2f2015%2f06%2fender-in-exile-976x448.jpg&ehk=a48wFqry2DSVOPAGU8bo3XTIvA1Aa31OSy%2bSRM%2bNAoc%3d&risl=&pid=ImgRaw"
                     },
 
                     new Book
@@ -185,7 +184,6 @@ namespace Mike05.Models
                         Category = "Fantasy",
                         Price = 8.99,
                         TotalPages = 499,
-                        CoverImg = "https://bookstacked.com/wp-content/uploads/2015/10/MAGNUS-CHASE_jacket_FINAL2.jpg"
                     },
 
                     new Book
@@ -199,7 +197,6 @@ namespace Mike05.Models
                         Category = "Fantasy",
                         Price = 9.99,
                         TotalPages = 375,
-                        CoverImg = "https://m.media-amazon.com/images/I/51fRfpkOZEL._SL500_.jpg"
                     }
                 );
 
