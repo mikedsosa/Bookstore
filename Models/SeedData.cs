@@ -158,10 +158,10 @@ namespace Mike05.Models
                         TotalPages = 642
                     },
 
-                    //bring in 3 of my own favorite books. Give them a cover image to be placed on their card
+                    //My 3 additions
                     new Book
                     {
-                        Title = "Ender in Exile",
+                        Title = "Exile",
                         AuthorFirst = "Orson",
                         AuthorMiddle = "Scott",
                         AuthorLast = "Card",
@@ -175,7 +175,7 @@ namespace Mike05.Models
 
                     new Book
                     {
-                        Title = "Magnus Chase and the Gods of Asgard: The Sword of Summer",
+                        Title = "The Sword of Summer",
                         AuthorFirst = "Rick",
                         AuthorLast = "Riordan",
                         Publisher = "Disney-Hyperion Books",
@@ -188,7 +188,7 @@ namespace Mike05.Models
 
                     new Book
                     {
-                        Title = "Pendragon: The Merchant of Death",
+                        Title = "The Merchant of Death",
                         AuthorFirst = "D.J.",
                         AuthorLast = "MacHale",
                         Publisher = "Aladdin Paperbacks",

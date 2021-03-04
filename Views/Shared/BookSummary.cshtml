@@ -1,0 +1,23 @@
+﻿@model Book
+@*Work through each instance of Book and get the following information out: then print it one at a time*@
+<div class="card card-outline-primary m-1 p-1">
+
+
+    @*Create header for each card using book title*@
+    <div class="card-header">
+        <h4 class="my-auto">@Model.Title</h4>
+    </div>
+
+    @*Create body content for each card using the rest of the model*@
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Author: @Model.AuthorFirst @Model.AuthorMiddle @Model.AuthorLast</li>
+            <li class="list-group-item">Publisher: @Model.Publisher</li>
+            <li class="list-group-item">ISBN: @Model.ISBN</li>
+            <li class="list-group-item">Classification: @Model.Classification</li>
+            <li class="list-group-item">Category: @Model.Category</li>
+            <li class="list-group-item">Price: $@Model.Price</li>
+            <li class="list-group-item">Total Pages: @Model.TotalPages</li>
+        </ul>
+    </div>
+</div>

@@ -30,7 +30,7 @@ namespace Mike05
             //Add connection string to allow database connection
             services.AddDbContext<BookDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:BookConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:BookConnection"]);
             });
 
             //add scoped to assist with database creation and repository
@@ -59,12 +59,31 @@ namespace Mike05
 
             app.UseEndpoints(endpoints =>
             {
-                //Add in custom search for page number
+                //if they type a category and page into the URL
+                endpoints.MapControllerRoute(
+                    "catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", Action = "Index" });
+
+                //if they only type the page number
+                endpoints.MapControllerRoute(
+                    "page",
+                    "{page:int}",
+                    new { Controller = "Home", Action = "Index" });
+
+                //if they type a category into the URL. Set the page to 1 since the user didn't provide it
+                endpoints.MapControllerRoute(
+                    "category",
+                    "{category}",
+                    new { Controller = "Home", Action = "Index", page = 1 });
+
+                //if they type projects/page into the URL
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
-                    new { Controller = "Home", action = "Index" });
+                    "Projects/{page}",
+                    new { Controller = "Home", Action = "Index" });
 
+                //if what comes in doesn't match anything, use the default route setup (Home -> Index)
                 endpoints.MapDefaultControllerRoute();
             });
 
@@ -72,3 +91,4 @@ namespace Mike05
         }
     }
 }
+

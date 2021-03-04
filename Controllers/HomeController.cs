@@ -24,12 +24,13 @@ namespace Mike05.Controllers
         }
 
         //Controller for the index page
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             //add in information for pagination
             return View(new BookListViewModel
             {
                 Books = _repository.Books
+                        .Where(b => category == null || b.Category == category)
                         .OrderBy(b => b.BookId)
                         .Skip((page - 1) * PageSize)
                         .Take(PageSize)
@@ -38,8 +39,10 @@ namespace Mike05.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Books.Count()
-                }
+                    //the next line will create page numbers automatically using an if statement that uses a where and count to create the correct number of pages
+                    TotalNumItems = category == null ? _repository.Books.Count() : _repository.Books.Where(x => x.Category == category).Count()
+                },
+                Category = category
             });
         }
 

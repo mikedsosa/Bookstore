@@ -1,30 +1,12 @@
 ﻿@{ ViewData["Title"] = "Home Page"; }
 
+@*Call in model to be used*@
 @model Mike05.Models.ViewModels.BookListViewModel
-
 @*Create div using bootstrap and place a book object inside of it.*@
 @foreach (var b in Model.Books)
 {
-<div class="card card-outline-primary m-1 p-1">
-
-    @*Create header for each card using book title*@
-    <div class="card-header">
-        <h4 class="my-auto">@b.Title</h4>
-    </div>
-
-    @*Create body content for each card using the rest of the model*@
-    <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Author: @b.AuthorFirst @b.AuthorMiddle @b.AuthorLast</li>
-            <li class="list-group-item">Publisher: @b.Publisher</li>
-            <li class="list-group-item">ISBN: @b.ISBN</li>
-            <li class="list-group-item">Classification: @b.Classification</li>
-            <li class="list-group-item">Category: @b.Category</li>
-            <li class="list-group-item">Price: $@b.Price</li>
-            <li class="list-group-item">Total Pages: @b.TotalPages</li>
-        </ul>
-    </div>
-</div>}
+<partial name="BookSummary" model="b" />
+}
 
 @*Buttons for pagination*@
 <div page-model="@Model.PagingInfo" page-action="Index"
