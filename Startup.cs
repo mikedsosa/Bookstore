@@ -88,6 +88,7 @@ namespace Mike05
             });
 
             SeedData.EnsurePopulated(app);
+            //secret easter egg.... if you read this you win 1000 schrute bucks
         }
     }
 }
