@@ -23,9 +23,6 @@ namespace Mike05.Pages
         //properties
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
-
-
-
         public void OnGet(string returnUrl)
         {
             //Set the ReturnUrl = returnUrl or / if nothing was passed in
