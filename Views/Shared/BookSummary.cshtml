@@ -20,4 +20,14 @@
             <li class="list-group-item">Total Pages: @Model.TotalPages</li>
         </ul>
     </div>
+    <form id="@Model.BookId" asp-page="/Purchase" method="post">
+        <input type="hidden" asp-for="BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="cart-text p-1">
+            @Model.Title
+            <button type="submit" class="btn-success btn-sm pull-right" style="float:right">
+                Add to Cart
+            </button>
+        </span>
+    </form>
 </div>

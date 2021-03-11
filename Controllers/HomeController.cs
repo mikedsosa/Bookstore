@@ -46,11 +46,7 @@ namespace Mike05.Controllers
             });
         }
 
-        // not being used right not
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 
 namespace Mike05
 {
@@ -35,7 +37,21 @@ namespace Mike05
 
             //add scoped to assist with database creation and repository
             services.AddScoped<IBookRepository, EFBookRepository>();
-        }
+
+            //allows you to use razor pages
+            services.AddRazorPages();
+
+            //setting up session storage
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            //create a service for the Cart class
+            //goal is to satisfy requests for Cart objects with SessionCart objects that will seamlessly store themselves.
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            //specifies that the same object should always be used
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        
+    }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -52,6 +68,8 @@ namespace Mike05
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 
@@ -85,6 +103,9 @@ namespace Mike05
 
                 //if what comes in doesn't match anything, use the default route setup (Home -> Index)
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
+
             });
 
             SeedData.EnsurePopulated(app);
